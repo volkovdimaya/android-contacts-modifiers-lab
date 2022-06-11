@@ -2,19 +2,17 @@ package ru.yandex.practicum.contacts.presentation.sort;
 
 import androidx.annotation.NonNull;
 
-import ru.yandex.practicum.contacts.presentation.sort.model.SortType;
-
 public class SortTypeUI {
 
-    private final SortType sortType;
+    private final String sortType;
     private final boolean selected;
 
-    public SortTypeUI(@NonNull SortType sortType, boolean selected) {
+    public SortTypeUI(@NonNull String sortType, boolean selected) {
         this.sortType = sortType;
         this.selected = selected;
     }
 
-    public SortType getSortType() {
+    public String getSortType() {
         return sortType;
     }
 
@@ -24,13 +22,19 @@ public class SortTypeUI {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         SortTypeUI that = (SortTypeUI) o;
 
-        if (selected != that.selected) return false;
-        return sortType == that.sortType;
+        if (selected != that.selected) {
+            return false;
+        }
+        return sortType.equals(that.sortType);
     }
 
     @Override
