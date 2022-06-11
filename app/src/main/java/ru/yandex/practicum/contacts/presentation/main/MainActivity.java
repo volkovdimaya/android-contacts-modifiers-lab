@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void updateUiState(MainViewModel.UiState uiState) {
+    private void updateUiState(MainUiState uiState) {
         final Boolean finishActivity = uiState.actions.finishActivity.data;
         if (finishActivity != null && finishActivity) {
             finish();
@@ -147,13 +147,13 @@ public class MainActivity extends AppCompatActivity {
         updateBadges(uiState);
     }
 
-    private void updateBadges(MainViewModel.UiState uiState) {
+    private void updateBadges(MainUiState uiState) {
         updateBadge(uiState.menuBadges.sort, R.id.menu_sort);
         updateBadge(uiState.menuBadges.filter, R.id.menu_filter);
         updateBadge(uiState.menuBadges.search, R.id.menu_search);
     }
 
-    private void updateBadge(MainViewModel.UiState.MenuBadge badge, @IdRes int menuItemId) {
+    private void updateBadge(MainUiState.MenuBadge badge, @IdRes int menuItemId) {
         final BadgeDrawable drawable = Objects.requireNonNull(badges.get(menuItemId));
         if (badge != null) {
             drawable.setVisible(true);
