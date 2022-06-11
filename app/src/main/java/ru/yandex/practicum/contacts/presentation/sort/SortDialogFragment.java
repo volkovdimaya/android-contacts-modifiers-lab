@@ -50,7 +50,7 @@ public class SortDialogFragment extends BaseBottomSheetDialogFragment<SortViewMo
         adapter.setItems(sortTypes);
     }
 
-    private void updateState(SortViewModel.UiState state) {
+    private void updateState(SortUiState state) {
         binding.applyButton.setEnabled(state.isApplyEnable);
 
         if (state.newSelectedSortType != null) {

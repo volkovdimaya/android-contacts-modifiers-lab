@@ -12,9 +12,9 @@ import androidx.lifecycle.MutableLiveData;
 
 public class SortViewModel extends BaseBottomSheetViewModel {
 
-    private final UiState uiState = new UiState();
+    private final SortUiState uiState = new SortUiState();
     private final MutableLiveData<List<SortTypeUI>> sortTypesLiveDate = new MutableLiveData<>();
-    private final MutableLiveData<UiState> uiStateLiveDate = new MutableLiveData<>();
+    private final MutableLiveData<SortUiState> uiStateLiveDate = new MutableLiveData<>();
 
     private String defaultSortType;
     private String selectedSortType;
@@ -49,7 +49,7 @@ public class SortViewModel extends BaseBottomSheetViewModel {
         return sortTypesLiveDate;
     }
 
-    public MutableLiveData<UiState> getUiStateLiveDate() {
+    public MutableLiveData<SortUiState> getUiStateLiveDate() {
         return uiStateLiveDate;
     }
 
@@ -64,15 +64,5 @@ public class SortViewModel extends BaseBottomSheetViewModel {
     private void updateUiState() {
         uiState.isApplyEnable = !defaultSortType.equals(selectedSortType);
         uiStateLiveDate.setValue(uiState);
-    }
-
-    // класс UiState должен иметь package-private доступ
-    public static class UiState {
-
-        // сделайте поля isApplyEnable и newSelectedSortType приватными
-        public boolean isApplyEnable = false;
-        public String newSelectedSortType = null;
-
-        // реализуйте get и set методы для обоих полей
     }
 }
