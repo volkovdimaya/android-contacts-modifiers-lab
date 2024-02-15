@@ -83,7 +83,7 @@ public class MainViewModel extends AndroidViewModel {
                 uiState.actions.showFilterContactTypeDialog.data = new HashSet<>(state.getContactTypes());
                 break;
             case SEARCH:
-                uiState.searchVisibility = !uiState.searchVisibility;
+                uiState.setSearchVisibility(!uiState.searchVisibility());
                 break;
         }
         updateUiState();
@@ -102,8 +102,8 @@ public class MainViewModel extends AndroidViewModel {
     }
 
     public void onBackPressed() {
-        if (uiState.searchVisibility) {
-            uiState.searchVisibility = false;
+        if (uiState.searchVisibility()) {
+            uiState.setSearchVisibility(false);
         } else {
             uiState.actions.finishActivity.data = true;
         }
@@ -112,7 +112,7 @@ public class MainViewModel extends AndroidViewModel {
 
     public void updateSearchText(String query) {
         state.setQuery(query);
-        uiState.resetSearchButtonVisibility = state.getQuery().length() != 0;
+        uiState.setResetSearchButtonVisibility(state.getQuery().length() != 0);
         updateUiState();
     }
 

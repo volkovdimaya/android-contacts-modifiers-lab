@@ -135,8 +135,8 @@ public class MainActivity extends AppCompatActivity {
             finish();
             return;
         }
-        binding.searchLayout.getRoot().setVisibility(uiState.searchVisibility ? View.VISIBLE : View.GONE);
-        binding.searchLayout.resetButton.setVisibility(uiState.resetSearchButtonVisibility ? View.VISIBLE : View.GONE);
+        binding.searchLayout.getRoot().setVisibility(uiState.searchVisibility() ? View.VISIBLE : View.GONE);
+        binding.searchLayout.resetButton.setVisibility(uiState.resetSearchButtonVisibility() ? View.VISIBLE : View.GONE);
         if (uiState.actions.showSortTypeDialog.data != null) {
             showSortDialog(uiState.actions.showSortTypeDialog.data);
         }
